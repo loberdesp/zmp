@@ -1,0 +1,13 @@
+std::sort(B,E)
+- operator < musi działać dla elementów wektora
+- sortowanie rosnące
+
+std::sort(B,E, BinaryPredicate Compare)
+sprowadza się do takich testów, predykat binarny musi spełniać te trzy warunki
+1. cmp(a,a) == false
+2. cmp(a,b) == true => cmp(b,a) == false
+3. (cmp(a,b) == true && cmp(b,c) == true) => cmp(a,c) == true
+
+możemy to zaimplementować jako funkcja lambda
+[](int a, int b) {return a<b;}
+

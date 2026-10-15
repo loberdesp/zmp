@@ -1,0 +1,105 @@
+Zadanie - karty STL
+Wymagania zaliczenia
+Zadanie: Implementacja systemu kart i talii w C++ z wykorzystaniem STL
+
+ 
+Celem zadania jest przećwiczenie podstaw korzystania z kontenerów oraz algorytmów STL w języku C++.
+Waszym zadaniem jest stworzenie klas reprezentujących kartę oraz talię kart a następnie implementacja operacji takich jak tworzenie talii, tasowanie i rozdawanie kart – korzystając w możliwie największym stopniu z mechanizmów standardowej biblioteki C++ (STL).
+
+Wymagania funkcjonalne
+1. Klasa Card
+Reprezentuje pojedynczą kartę do gry.
+
+Konstrukcja karty powinna opierać się na:
+
+wartości (rank): 2–10, J, Q, K, A,
+
+kolorze (suit): Trefl, Karo, Kier, Pik (dowolny format tekstowy lub enum).
+
+Klasa powinna udostępniać:
+
+konstruktor ustawiający pola,
+
+funkcję std::string toString() const;
+– zwracającą czytelną reprezentację karty,
+
+operatory porównania jeśli będą potrzebne (opcjonalnie).
+
+2. Klasa Deck
+Przechowuje kolekcję kart w standardowym kontenerze — preferowany std::vector<Card>.
+
+W implementacji metod należy używać algorytmów STL takich jak:
+
+std::shuffle,
+
+std::transform,
+
+std::copy_n,
+
+std::move,
+
+std::remove_if,
+
+i inne, jeśli pasują.
+
+Wymagane metody:
+void fillStandardDeck(); – tworzy standardową talię 52 kart.
+
+void shuffle(); – tasuje karty przy użyciu std::shuffle.
+
+Card drawCard(); – zwraca i usuwa pierwszą kartę z talii.
+
+std::vector<Card> drawCards(size_t n); – zwraca n kart, wykorzystując algorytmy STL (np. std::move + erase).
+
+bool isEmpty() const;
+
+size_t size() const;
+
+3. Rozdawanie kart graczom
+Gracze mogą być reprezentowani jako:
+
+wektory kart (std::vector<Card>), lub
+
+obiekty klasy Deck (wówczas ich talia to również std::vector<Card>).
+
+Zaimplementować metodę:
+
+std::vector<Deck> deal(size_t playersCount, size_t cardsPerPlayer);
+która:
+
+tworzy playersCount talii,
+
+używa algorytmów STL do przeniesienia kart każdemu graczowi, np.:
+
+std::copy_n,
+
+std::move,
+
+std::back_inserter.
+
+4. Program demonstracyjny (main)
+Program powinien:
+
+Utworzyć talię,
+
+Wypełnić ją standardowymi kartami,
+
+Przetasować karty,
+
+Rozdać np. 5 kart 4 graczom,
+
+Wypisać ręce graczy oraz liczbę kart pozostałych w talii.
+
+ 
+Rozszerzenia dla chętnych
+Implementacja porównywania kart i posortowanie talii (std::sort).
+
+Zaimplementowanie prostego mechanizmu gry:
+
+np. wybór najwyższej karty,
+
+porównanie talii dwóch graczy.
+
+Zapis i odczyt talii do pliku z użyciem strumieni (std::ifstream, std::ofstream).
+
+Ostatnia modyfikacja: środa, 14 października 2026, 12:44

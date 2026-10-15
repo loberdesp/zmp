@@ -1,0 +1,13 @@
+.idea/
+cmake-build-*/
+build/
+CMakeFiles/
+CMakeCache.txt
+cmake_install.cmake
+compile_commands.json
+Makefile
+a.out
+*.o
+*.gch
+/7_10/main
+/7_10/stack
